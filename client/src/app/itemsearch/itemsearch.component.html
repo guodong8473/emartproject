@@ -1,0 +1,135 @@
+<div class="container-fluid mb-5 align-middle">
+  <div class="row mb-5 align-middle">
+    <div class="col mt-5 align-middle">
+
+
+        <div class="accordion-group">
+
+          <div class="collapse show" id="form1" data-parent="#exampleForms">
+            <div class="container-fluid mb-5">
+              <div class="row mb-5">
+                <div class="col-8 mt-5">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title text-primary font-weight-bold">Search Item</h5>
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="name">Start Price</label>
+                          <input type="text" class="form-control" [formControl]="start_price">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="email">End Price</label>
+                          <input type="email" class="form-control" [formControl]="end_price">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="job">Manufactory</label>
+                          <select class="form-control" [formControl]="manufactory">
+                            <option value="samsung">Samsung</option>
+                            <option value="apple">Apple</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-row justify-content-center ">
+                        <div class="form-group col-md-6 ">
+                          <label for="comment">Name</label>
+                          <input class="form-control"  [formControl]="name">
+                        </div>
+                      </div>
+                      <div class="form-row justify-content-center">
+                        <button (click)="onSetValueForm()" type="submit" class="btn btn-primary mr-4">Search</button>
+                        <button (click)="onResetForm()" type="submit" class="btn btn-primary mr-4">Reset</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group">
+    <button type="button" class="list-group-item list-group-item-action">
+      <ul class="list-unstyled">
+        <li class="media">
+          <img src="" class="mr-3" alt="...">
+          <div class="media-body row">
+            <div class="col-md-4 align-middle">
+              <label for="name">Samsung Galaxy</label>
+            </div>
+            <div class="col-md-4 align-middle">
+              <label for="name">Rs.1999</label>
+            </div>
+            <div class="col-md-4 align-middle">
+              <label for="name">Seller1</label>
+            </div>
+           </div>
+        </li>
+      </ul>
+    </button>
+    <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#item_spec">
+      <ul class="list-unstyled">
+        <li class="media">
+          <img src="" class="mr-3" alt="...">
+          <div class="media-body row">
+            <div class="col-md-4 align-middle">
+              <label for="name">Samsung Galaxy</label>
+            </div>
+            <div class="col-md-4 align-middle">
+              <label for="name">Rs.1999</label>
+            </div>
+            <div class="col-md-4 align-middle">
+              <label for="name">Seller1</label>
+            </div>
+           </div>
+        </li>
+      </ul>
+    </button>
+  </div>
+
+  <div class="modal fade" id="item_spec" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

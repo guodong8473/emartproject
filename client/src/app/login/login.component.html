@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+      <h2 class="card-header">Login</h2>
+      <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" formControlName="login_name" class="form-control" required />
+                  <div *ngIf="submitted  && formControl.login_name.errors" >
+                      <div *ngIf="formControl.login_name.errors.required" style="color: red;">login_name is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" formControlName="login_password" class="form-control"/>
+                  <div *ngIf="submitted && formControl.login_password.errors">
+                      <div *ngIf="formControl.login_password.errors.required" style="color: red;">login_password is required</div>
+                  </div>
+              </div>
+              <!-- <button [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button> -->
+              <div>
+              <input type="radio" name="login_role" [(ngModel)]="login_role" value="buyer">Buyer
+               <input type="radio" name="login_role" [(ngModel)]="login_role" value="seller">Seller
+              </div>
+              <div>
+               <button  class="btn btn-primary">Submit</button>
+              </div>
+              </form>
+      </div>
+  </div>
+</div>
