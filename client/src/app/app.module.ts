@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 // import { BootstrapModalModule } from 'ngx-bootstrap-modal';
 // import { ModalModule } from 'ngx-bootstrap/modal';
 
@@ -12,6 +13,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ItemsearchComponent } from './itemsearch/itemsearch.component';
 import { ItemspecificationComponent } from './itemspecification/itemspecification.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+// import { ProductItem } from'./interface/ProductItem';
+import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
 
 @NgModule({
    declarations: [
@@ -20,9 +24,12 @@ import { ItemspecificationComponent } from './itemspecification/itemspecificatio
       SignComponent,
       HomeComponent,
       ItemsearchComponent,
-      ItemspecificationComponent
+      ItemspecificationComponent,
+      ShoppingcartComponent,
+      PurchasehistoryComponent
    ],
    imports: [
+      CommonModule,
       BrowserModule,
       AppRoutingModule,
       ReactiveFormsModule,

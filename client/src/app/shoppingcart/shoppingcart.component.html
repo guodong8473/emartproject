@@ -1,0 +1,52 @@
+<div class="row mb-5 align-middle">
+</div>
+<div class="col-md-12">
+<h5>Shopping Cart</h5>
+  <div *ngFor="let product of products let i=index">
+    <div  class="list-group-item " >
+    <ul class="list-unstyled">   
+      <li class="media">
+        <img src="{{product.pic}}" class="mr-3" alt="...">
+        <div class="media-body row">
+          <div class="col-md-3 align-middle">
+            <label>{{product.title}}</label>
+          </div>
+          <div class="col-md-2 align-middle">
+            <label >{{product.price}}元</label>
+          </div>
+          <div class="col-md-3 align-middle">
+          <input type="text" class="form-control" name="product.buycount" value="{{product.buycount}}">
+          </div>
+          <div class="col-md-4 align-middle">
+            <button (click)="ondelete()" type="submit" class="btn btn-primary mr-4">Delete</button>
+          </div>
+         </div>
+      </li>
+    </ul>
+   </div>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="card">
+ 
+      <div class="card-body">
+
+          <div class="col-md-8 form-row">
+            <label class="col-md-5" >Total Tax</label>
+            <label class="col-md-5" >1,000</label>
+          </div>
+          <div class="col-md-8 form-row">
+            <label class="col-md-5">Total Price</label>
+            <label class="col-md-5" >2,000</label>
+          </div>
+
+      </div>
+      <div class="form-row justify-content-center">
+        <input type="text" name="discountcode" value="{{discountcode}}"/>
+        <button (click)="ondiscount()" type="submit" class="btn btn-primary mr-4">Discount</button>
+        <button (click)="oncheckout()" type="submit" class="btn btn-primary mr-4">Checkout</button>
+      </div>
+  </div>
+</div>

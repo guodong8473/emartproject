@@ -5,7 +5,8 @@ import { SignComponent } from './sign/sign.component';
 import { HomeComponent } from './home/home.component';
 import { ItemsearchComponent } from './itemsearch/itemsearch.component';
 import { ItemspecificationComponent } from './itemspecification/itemspecification.component';
-
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
 
 const routes: Routes = [
   // { path: '/', redirectTo :'home' },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'itemsearch', component: ItemsearchComponent },
   { path: 'itemspecification', component: ItemspecificationComponent },
+  { path: 'shoppingcart', component: ShoppingcartComponent },
+  { path: 'purchasehistory', component: PurchasehistoryComponent },
 ];
 
 @NgModule({
