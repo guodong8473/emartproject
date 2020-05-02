@@ -31,7 +31,7 @@ export class AppComponent {
     }
   }
   logOut() {
-    sessionStorage.removeItem('token');
+    sessionStorage.clear();
     this.router.navigate(['/login']);
   }
 }

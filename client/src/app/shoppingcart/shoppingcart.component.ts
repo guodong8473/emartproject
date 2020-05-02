@@ -15,14 +15,14 @@ const PRODUCTS: ProductItem[] = [{
   price: 3299,
   title: 'iphone se',
   desc: 'iPhone SE packs A13 Bionic, Portrait mode, 4K video, Touch ID, a Retina HD display, and great battery life into a 4.7” design',
-  pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587214615893&di=941488bce9f57493a71cb29380878ec8&imgtype=0&src=http%3A%2F%2Fimg0.pconline.com.cn%2Fpconline%2F2004%2F16%2Fg_13363665_1587023070013.jpg',
+  pic: './assets/iphonese.jpg',
   buycount: 1
 }, {
   id: '2',
   price: 4999,
   title: 'xiaomi 10',
   desc: 'new xiaomi phone',
-  pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587214615893&di=941488bce9f57493a71cb29380878ec8&imgtype=0&src=http%3A%2F%2Fimg0.pconline.com.cn%2Fpconline%2F2004%2F16%2Fg_13363665_1587023070013.jpg',
+  pic: './assets/xiaomi.jpg',
   buycount: 2
 }
 ];

@@ -55,7 +55,7 @@
      <button type="button" class="list-group-item list-group-item-action" (click)="changeItem(i)" data-toggle="modal" data-target="#item_spec">
       <ul class="list-unstyled">
         <li class="media">
-          <img src="{{product.pic}}" class="mr-3" alt="...">
+          <img src="{{product.pic}}" class="mr-3" style="height: 150px; display: block;"  alt="...">
           <div class="media-body row">
             <div class="col-md-4 align-middle">
               <label>{{product.title}}</label>
@@ -107,7 +107,7 @@
           </div>
           <div class="form-row">
             <div class="media">
-              <img src="./assets/history.jpg" class="mr-3 img-thumbnail" style="height: 150px; width: 150px; display: block;" alt="...">
+              <img src="{{products[current].pic}}" class="mr-3 img-thumbnail" style="height: 150px;  display: block;" alt="...">
               <div class="media-body">
 
                 <div class="col-md-12">
