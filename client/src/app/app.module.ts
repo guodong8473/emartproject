@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { BootstraptModule} from './node_modules/bootstrap/';
 import { LoginComponent } from './login/login.component';
 import { SignComponent } from './sign/sign.component';
@@ -20,7 +21,14 @@ import { ItemaddComponent } from './itemadd/itemadd.component';
 import { StockviewComponent } from './stockview/stockview.component';
 import { ItemreportComponent } from './itemreport/itemreport.component';
 import { DiscountComponent } from './discount/discount.component';
+
+//import Pipe
 import { PercentpipePipe } from './general/pipe/percentpipe.pipe';
+
+
+//import interceptor
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Authinterceptor } from './general/interceptor/auth.interceptor';
 
 
 @NgModule({
@@ -45,10 +53,11 @@ import { PercentpipePipe } from './general/pipe/percentpipe.pipe';
       AppRoutingModule,
       ReactiveFormsModule,
       FormsModule,
+      HttpClientModule,
       //BootstrapModalModule,
       //BootstraptModule
    ],
-   providers: [],
+   providers: [{provide: HTTP_INTERCEPTORS, useClass: Authinterceptor, multi: true}],
    bootstrap: [
       AppComponent
    ]

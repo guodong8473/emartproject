@@ -4,6 +4,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 // import { ProductItem } from'./interface/ProductItem';
 // import { DialogComponent, DialogService } from 'ngx-bootstrap-modal';
 
+import { IteamsearchService } from './itemsearch.service';
+
 
 interface ProductItem {
   id: string;
@@ -41,15 +43,21 @@ export class ItemsearchComponent implements OnInit {
   friend01 = new FormControl('');
   friend02 = new FormControl('');
 
-  products: ProductItem[];
+  //products: ProductItem[];
+  products: any = [];
   current = 0;
-  constructor() { 
+  constructor(
+    private itemsService: IteamsearchService,
+
+  ) { 
         this.onSetValueForm();
+
   }
 
   ngOnInit() {
 
     this.products = PRODUCTS;
+    // this.searchitem();
   }
 
   onSetValueForm() {
@@ -70,4 +78,20 @@ export class ItemsearchComponent implements OnInit {
   changeItem(item: any) {
     this.current = item;
   }
+
+  searchitem() {
+    // this.loaded = false;
+
+    if (this.products.length == 0) {
+      this.itemsService.getItems()
+        .subscribe(
+          items => {
+            debugger
+            this.products = items;
+            console.log(items)
+          });
+    
+    }
+  }
+
 }
