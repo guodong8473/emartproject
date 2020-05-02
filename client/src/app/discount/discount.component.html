@@ -1,0 +1,27 @@
+
+  <div class="row mb-5 align-middle">
+  </div>
+  <div class="col-md-12">
+    <h3 class="text-center">
+      Discount View
+    </h3>
+    <div *ngFor="let discount of discounts let i=index">
+      <div  class="list-group-item " >
+      <ul class="list-unstyled">   
+        <li>
+          <div class="media-body row">
+            <div class="col-md-3 align-middle">
+              <label>No.{{discount.id}}</label>
+            </div>
+            <div class="col-md-3 align-middle">
+              <label>{{discount.percent | percentpipe}}</label>
+            </div>
+            <div class="col-md-2 align-middle">
+              <label >{{discount.desc}}</label>
+            </div>
+           </div>
+        </li>
+      </ul>
+     </div>
+    </div>
+  </div>

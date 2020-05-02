@@ -16,6 +16,12 @@ import { ItemspecificationComponent } from './itemspecification/itemspecificatio
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 // import { ProductItem } from'./interface/ProductItem';
 import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
+import { ItemaddComponent } from './itemadd/itemadd.component';
+import { StockviewComponent } from './stockview/stockview.component';
+import { ItemreportComponent } from './itemreport/itemreport.component';
+import { DiscountComponent } from './discount/discount.component';
+import { PercentpipePipe } from './general/pipe/percentpipe.pipe';
+
 
 @NgModule({
    declarations: [
@@ -26,7 +32,12 @@ import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.comp
       ItemsearchComponent,
       ItemspecificationComponent,
       ShoppingcartComponent,
-      PurchasehistoryComponent
+      PurchasehistoryComponent,
+      ItemaddComponent,
+      StockviewComponent,
+      ItemreportComponent,
+      DiscountComponent,
+      PercentpipePipe
    ],
    imports: [
       CommonModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {CanActivate, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  login_role = 'buyer';
+
   error = '';
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router
     
   ) { 
     
@@ -20,19 +22,26 @@ export class LoginComponent implements OnInit {
   get formControl() { return this.loginForm.controls; }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.loginForm = this.formBuilder.group({
         login_name: ['', Validators.required],
-        login_password: ['', Validators.required]
+        login_password: ['', Validators.required],
+        login_role: ['buyer', Validators.required]
+        
     });
 
 }
 
   onSubmit() {
+
     this.submitted = true;
     // alert(this.loginForm.invalid)
     if (this.loginForm.invalid) {
       return;
   }
+  sessionStorage.setItem('token', 'test');
+  sessionStorage.setItem('user_role', this.loginForm.controls.login_role.value);
+ 
   // {
   //   this.userService.postSignIn(value).subscribe(
   //     data => {
@@ -51,7 +60,7 @@ export class LoginComponent implements OnInit {
   //   );
   // }
 
-
+ this.router.navigate(['/home']);
   
   }
 }

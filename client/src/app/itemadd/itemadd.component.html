@@ -1,0 +1,68 @@
+
+
+
+<div class="col-md-10 ">
+  <div class="card">
+      <h2 class="card-title text-primary font-weight-bold align-middle">Add Item</h2>
+
+         <div class="card-body">
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                    <label class="col-md-3 ">Categary</label>
+
+                    <select class="form-control col-md-4" formControlName="categary" required>
+                      <option value="samsung">PHONE</option>
+                      <option value="apple">COMPUTER</option>
+                    </select>
+                    <div *ngIf="submitted  && formControl.categary.errors" class="col-md-5 ">
+                        <div *ngIf="formControl.categary.errors.required" style="color: red;">categary is required</div>
+                    </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 ">Sub Categary</label>
+
+                <select class="form-control col-md-4" formControlName="sub_categary" required>
+                  <option value="samsung">APPLE</option>
+                  <option value="apple">OPPO</option>
+                </select>
+                <div *ngIf="submitted  && formControl.sub_categary.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.sub_categary.errors.required" style="color: red;">sub_categary is required</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 right">Item Name</label>
+                <input type="password" formControlName="item_name" class="form-control col-md-4"/>
+                <div *ngIf="submitted && formControl.item_name.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.item_name.errors.required" style="color: red;">Item Name is required</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 ">price</label>
+                <input type="text" formControlName="price" class="form-control col-md-4 " required />
+                <div *ngIf="submitted  && formControl.price.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.price.errors.required" style="color: red;">price is required</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 ">No. of Stock</label>
+                <input type="text" formControlName="stock" class="form-control col-md-4 " required />
+                <div *ngIf="submitted  && formControl.stock.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.stock.errors.required" style="color: red;">No. of Stock is required</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 ">Description</label>
+                <input type="text" formControlName="des" class="form-control col-md-4 " required />
+                <div *ngIf="submitted  && formControl.des.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.des.errors.required" style="color: red;">Description is required</div>
+                </div>
+              </div>
+                <!-- <button [disabled]="signForm.invalid" class="btn btn-primary">Submit</button> -->
+
+              <div>
+                <button  class="btn btn-primary">Save Items</button>
+                </div>
+                </form>
+          </div>
+        </div>
+</div>

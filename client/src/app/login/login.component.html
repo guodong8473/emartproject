@@ -19,8 +19,8 @@
               </div>
               <!-- <button [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button> -->
               <div>
-              <input type="radio" name="login_role" [(ngModel)]="login_role" value="buyer">Buyer
-               <input type="radio" name="login_role" [(ngModel)]="login_role" value="seller">Seller
+              <input type="radio" formControlName="login_role" value="buyer" checked>Buyer
+               <input type="radio" formControlName="login_role" value="seller">Seller
               </div>
               <div>
                <button  class="btn btn-primary">Submit</button>

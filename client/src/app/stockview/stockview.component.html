@@ -1,0 +1,77 @@
+
+  
+
+  <div class="row mb-5 align-middle">
+  </div>
+  <div class="col-md-12">
+    <h3 class="text-center">
+      View Stock
+    </h3>
+    <div *ngFor="let product of products let i=index">
+      <div  class="list-group-item " >
+      <ul class="list-unstyled">   
+        <li class="media">
+          <img src="{{product.pic}}" class="mr-3 " style="height: 150px;" alt="...">
+          <div class="media-body row">
+            <div class="col-md-3 align-middle">
+              <label>{{product.title}}</label>
+            </div>
+            <div class="col-md-2 align-middle">
+              <label >{{product.price}}元</label>
+            </div>
+            <div class="col-md-3 align-middle">
+            <label  name="product.buycount" >{{product.stock}}</label>
+            </div>
+            <div class="col-md-4 align-middle">
+              <button type="button" class="btn btn-primary mr-4" (click)="onview(i)" data-toggle="modal" data-target="#item_spec">Update Stock</button>
+            </div>
+           </div>
+        </li>
+      </ul>
+     </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-xl" id="item_spec" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="card">
+          <div class="card-body">
+            <div class="row justify-content-center pt-2">
+              <div class="text-center col">
+                <h1 class="h3">Update Stock</h1>
+                <hr>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="media">
+                <img src="./assets/history.jpg" class="mr-3 img-thumbnail" style="height: 150px; width: 150px; display: block;" alt="...">
+                <div class="media-body">
+  
+                  <div class="col-md-12">
+                    <label > {{products[current].title}} </label>
+  
+                  </div>
+                  <div class="col-md-12">
+                    <label >{{ products[current].price }}</label>                      
+                  </div>
+                  <div class="col-md-12">
+                    <label >{{ products[current].desc }}</label>
+                    </div>
+                  <div class="col-md-12 row">
+                      <label class="col-md-3" >{{ products[current].stock }}</label>
+                      <!-- <input type="text" class="form-control col-md-2" name="products[current].stock"> -->
+                      <input type="text" class="form-control col-md-3" [formControl]="new_stock">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row justify-content-center">
+              <button type="button" class="btn btn-primary mr-4" (click)="onupdate(current, new_stock)" data-dismiss="modal">Update</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>                   
+  
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>

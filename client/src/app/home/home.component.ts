@@ -11,5 +11,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  isSeller() {
+    if ((sessionStorage.getItem('user_role') == 'seller')) {
+      return true;
+    } else{
+      return false;
+    }
 
+
+  }
 }
