@@ -18,7 +18,7 @@ public class HelloController {
         return "Hello World!";
     }
 
-    @Data
+/*    @Data
     static class Result {
         private final int left;
         private final int right;
@@ -33,5 +33,5 @@ public class HelloController {
                 .addValue("right", right);
         return jdbcTemplate.queryForObject("SELECT :left + :right AS answer", source,
                 (rs, rowNum) -> new Result(left, right, rs.getLong("answer")));
-    }
+    }*/
 }
