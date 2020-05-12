@@ -1,0 +1,22 @@
+
+#HTTPS
+server:
+  port: 8084
+
+#spring
+spring:
+  profiles:
+    active: local
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+
+
+#Logger
+logging:
+  level:
+    org:
+      springframework: info
+

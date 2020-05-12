@@ -78,4 +78,10 @@
 
 		
 	</dependencies>
+	<modules>
+		<module>emart_seller</module>
+		<module>emart_purchasehistory</module>
+		<module>emart_transaction</module>
+		<module>emart_discount</module>
+	</modules>
 </project>

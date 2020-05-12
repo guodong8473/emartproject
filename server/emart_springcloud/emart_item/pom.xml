@@ -7,9 +7,7 @@
     <artifactId>emart_springcloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>cn.jin</groupId>
   <artifactId>emart_item</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>emart_item</name>
   <url>http://maven.apache.org</url>
   <properties>

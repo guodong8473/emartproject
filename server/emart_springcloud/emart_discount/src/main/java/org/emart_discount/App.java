@@ -1,4 +1,4 @@
-package org.emart_item;
+package org.emart_discount;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
