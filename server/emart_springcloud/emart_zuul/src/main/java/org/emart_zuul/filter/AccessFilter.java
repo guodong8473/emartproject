@@ -95,7 +95,7 @@ public class AccessFilter extends ZuulFilter{
 				//User user = restTempate.getForObject("http://localhost:8901/auth/user", User.class);
 				// User user = restTempate.getForObject("http://cloud-auth-service/auth/user", User.class);
 //				Map<String, Object> user = restTempate.getForObject("http://localhost:8090/api/cloud-emart-auth/user", Map.class);
-				String reurl = "http://localhost:8090/oauth/check_token?" + accessToken.toString();
+				String reurl = "http://localhost:8090/oauth/check_token?token=" + accessToken.toString();
 				Map<String, Object> user = restTempate.getForObject(reurl, Map.class);
 				
 				if (user == null) {
