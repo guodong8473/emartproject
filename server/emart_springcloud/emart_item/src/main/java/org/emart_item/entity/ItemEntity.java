@@ -17,18 +17,18 @@ public class ItemEntity {
   @Column(name = "id")
   private int id;
 
-  @ManyToOne  
-  @JoinColumn(name = "category_id", referencedColumnName = "id")  
-  private CategoryEntity category;
-//  @Column(name = "category_id")
-//  private int category_id;
+//  @ManyToOne  
+//  @JoinColumn(name = "category_id", referencedColumnName = "id")  
+//  private CategoryEntity category;
+  @Column(name = "category_id",updatable=false)
+  private int category_id;
  
   
-  @ManyToOne  
-  @JoinColumn(name = "subcategory_id", referencedColumnName = "id")  
-  private CategoryEntity subcategory;
-//  @Column(name = "subcategory_id")
-//  private int subcategory_id;
+//  @ManyToOne  
+//  @JoinColumn(name = "subcategory_id", referencedColumnName = "id")  
+//  private CategoryEntity subcategory;
+  @Column(name = "subcategory_id",updatable=false)
+  private int subcategory_id;
  
   @Column(name = "price")
   private String price;
@@ -49,12 +49,17 @@ public class ItemEntity {
   @Column(name = "remarks")
   private String remarks;
 
+  @Column(name = "url")
+  private String url;
+  
   @Column(name = "create_time")
   private Timestamp create_time;
 
   @Column(name = "updateTime")
   private Timestamp updateTime;
 
+  
+  
 public int getId() {
 	return id;
 }
@@ -63,37 +68,39 @@ public void setId(int id) {
 	this.id = id;
 }
 
-//public int getCategory_id() {
-//	return category_id;
+public int getCategory_id() {
+	return category_id;
+}
+
+public void setCategory_id(int category_id) {
+	this.category_id = category_id;
+}
+
+public int getSubcategory_id() {
+	return subcategory_id;
+}
+
+public void setSubcategory_id(int subcategory_id) {
+	this.subcategory_id = subcategory_id;
+}
+
+
+
+//public CategoryEntity getCategory() {
+//	return category;
 //}
 //
-//public void setCategory_id(int category_id) {
-//	this.category_id = category_id;
-//}
-
-//public int getSubcategory_id() {
-//	return subcategory_id;
+//public void setCategory(CategoryEntity category) {
+//	this.category = category;
 //}
 //
-//public void setSubcategory_id(int subcategory_id) {
-//	this.subcategory_id = subcategory_id;
+//public CategoryEntity getSubcategory() {
+//	return subcategory;
 //}
-
-public CategoryEntity getCategory() {
-	return category;
-}
-
-public void setCategory(CategoryEntity category) {
-	this.category = category;
-}
-
-public CategoryEntity getSubcategory() {
-	return subcategory;
-}
-
-public void setSubcategory(CategoryEntity subcategory) {
-	this.subcategory = subcategory;
-}
+//
+//public void setSubcategory(CategoryEntity subcategory) {
+//	this.subcategory = subcategory;
+//}
 
 public String getPrice() {
 	return price;
@@ -157,6 +164,14 @@ public Timestamp getUpdateTime() {
 
 public void setUpdateTime(Timestamp updateTime) {
 	this.updateTime = updateTime;
+}
+
+public String getUrl() {
+	return url;
+}
+
+public void setUrl(String url) {
+	this.url = url;
 }
 
 

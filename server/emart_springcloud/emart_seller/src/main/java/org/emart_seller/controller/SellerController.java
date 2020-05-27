@@ -34,7 +34,7 @@ public class SellerController {
 	public ResponseEntity<Integer> register(@RequestBody SellerModel sellerModel){
 		System.out.println("register");
 		sellerService.insertSeller(sellerModel);
-		return ResponseEntity.ok(1);
+		return ResponseEntity.ok(200);
 //		return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 	

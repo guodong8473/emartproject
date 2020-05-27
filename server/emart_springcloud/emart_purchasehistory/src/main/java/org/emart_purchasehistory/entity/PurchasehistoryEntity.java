@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,10 +26,25 @@ public class PurchasehistoryEntity {
   @Column(name = "transaction_id")
   private int transaction_id;
   
-  @Column(name = "item_id")
-  private int item_id;
+//  @Column(name = "item_id")
+//  private int item_id;
   
-  @Column(name = "number_of_items")
+  @OneToOne  
+  @JoinColumn(name = "item_id", referencedColumnName = "id")  
+  private ItemEntity item;
+  
+  
+  
+  
+  public ItemEntity getItem() {
+	return item;
+}
+
+public void setItem(ItemEntity item) {
+	this.item = item;
+}
+
+@Column(name = "number_of_items")
   private int number_of_items;
   
   @Column(name = "date_time")
@@ -74,13 +91,13 @@ public void setTransaction_id(int transaction_id) {
 	this.transaction_id = transaction_id;
 }
 
-public int getItem_id() {
-	return item_id;
-}
-
-public void setItem_id(int item_id) {
-	this.item_id = item_id;
-}
+//public int getItem_id() {
+//	return item_id;
+//}
+//
+//public void setItem_id(int item_id) {
+//	this.item_id = item_id;
+//}
 
 public int getNumber_of_items() {
 	return number_of_items;

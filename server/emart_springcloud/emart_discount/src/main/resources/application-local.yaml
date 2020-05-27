@@ -1,22 +1,14 @@
 spring:
   #Mysql (in memory)
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/emart?serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/emart?useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: asdf
     sql-script-encoding: utf-8
 
-
-    initialization-mode: always
-    continue-on-error: true 
   jpa:
-    database: MYSQL
-    show-sql: true
     hibernate:
-      ddl-auto: update
-      naming:
-        strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        database-platform: org.hibernate.dialect.MySQLDialect
+        ddl-auto: update
+        show-sql: true

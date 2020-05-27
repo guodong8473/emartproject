@@ -11,16 +11,16 @@
       <div  class="list-group-item " >
       <ul class="list-unstyled">   
         <li class="media">
-          <img src="{{product.pic}}" class="mr-3 " style="height: 150px;" alt="...">
+          <img src="{{product.url}}" class="mr-3 " style="height: 150px;" alt="...">
           <div class="media-body row">
             <div class="col-md-3 align-middle">
-              <label>{{product.title}}</label>
+              <label>{{product.item_name}}</label>
             </div>
             <div class="col-md-2 align-middle">
               <label >{{product.price}}元</label>
             </div>
             <div class="col-md-3 align-middle">
-            <label  name="product.buycount" >{{product.stock}}</label>
+            <label  name="product.buycount" >{{product.stock_number}}</label>
             </div>
             <div class="col-md-4 align-middle">
               <button type="button" class="btn btn-primary mr-4" (click)="onview(i)" data-toggle="modal" data-target="#item_spec">Update Stock</button>
@@ -44,23 +44,23 @@
             </div>
             <div class="form-row">
               <div class="media">
-                <img src="{{products[current].pic}}" class="mr-3 img-thumbnail" style="height: 150px;  display: block;" alt="...">
+                <img src="{{products[current].url}}" class="mr-3 img-thumbnail" style="height: 150px;  display: block;" alt="...">
                 <div class="media-body">
   
                   <div class="col-md-12">
-                    <label > {{products[current].title}} </label>
+                    <label > {{products[current].item_name}} </label>
   
                   </div>
                   <div class="col-md-12">
                     <label >{{ products[current].price }}</label>                      
                   </div>
                   <div class="col-md-12">
-                    <label >{{ products[current].desc }}</label>
+                    <label >{{ products[current].description }}</label>
                     </div>
                   <div class="col-md-12 row">
-                      <label class="col-md-3" >{{ products[current].stock }}</label>
+                      <label class="col-md-3" >{{ products[current].stock_number }}</label>
                       <!-- <input type="text" class="form-control col-md-2" name="products[current].stock"> -->
-                      <input type="text" class="form-control col-md-3" [formControl]="new_stock">
+                      <input type="text" class="form-control col-md-3" [formControl]="new_stock" value="{{ products[current].stock_number }}">
                   </div>
                 </div>
               </div>

@@ -22,7 +22,19 @@ public class TransactionEntity {
 // 
 //  @Column(name = "seller_id")
 //  private int seller_id;
- 
+  @OneToOne  
+  @JoinColumn(name = "item_id", referencedColumnName = "id")  
+  private ItemEntity item;
+  
+  
+  public ItemEntity getItem() {
+	return item;
+}
+
+public void setItem(ItemEntity item) {
+	this.item = item;
+}
+  
   @Column(name = "transaction_type")
   private String transaction_type;
 
@@ -32,6 +44,11 @@ public class TransactionEntity {
   @Column(name = "remarks")
   private String remarks;
 
+  
+  @Column(name = "number_of_items")
+  private String number_of_items;
+  
+  
   @Column(name = "create_time")
   private Timestamp create_time;
 
@@ -125,6 +142,14 @@ public class TransactionEntity {
 
 	public void setUpdate_time(Timestamp update_time) {
 		this.update_time = update_time;
+	}
+
+	public String getNumber_of_items() {
+		return number_of_items;
+	}
+
+	public void setNumber_of_items(String number_of_items) {
+		this.number_of_items = number_of_items;
 	}
 	
 

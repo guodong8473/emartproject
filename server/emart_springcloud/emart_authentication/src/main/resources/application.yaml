@@ -1,0 +1,42 @@
+
+#HTTPS
+server:
+  port: 8090
+#  contextPath: /auth
+
+#spring
+spring:
+  application:
+    name: cloud-emart-auth
+  profiles:
+    active: local
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+security:
+  oauth2: #与oauth2-server对应的配置
+    client:
+      client-id: admin
+      client-secret: admin
+      accessTokenUri: http://localhost:8090/oauth/token
+      
+management:
+  security:
+    enabled: false
+
+#Logger
+logging:
+  level:
+    org:
+      springframework: info
+
+
+eureka:
+   instance:
+      preferIpAddress: true		#注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true	#向Eureka注册服务
+         fetchRegistry: true		#拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/

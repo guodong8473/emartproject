@@ -21,7 +21,14 @@ public class TransactionService {
     public List<TransactionEntity> getTransaction() {
     	return (List<TransactionEntity>) transactionRepository.findAll();
     }
-	
+
+    public void delTransaction(String id) {
+    	TransactionEntity tran = new TransactionEntity();
+    	tran.setId(Integer.parseInt(id));
+    	transactionRepository.delete(tran);
+    
+    }
+    
     public void insertTransaction(TransactionModel transactionModel) {
     	TransactionEntity transactionEntity = new TransactionEntity();
     	BeanUtils.copyProperties(transactionModel, transactionEntity);

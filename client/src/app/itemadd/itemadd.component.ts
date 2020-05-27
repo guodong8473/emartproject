@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ItemaddService } from './itemadd.service';
 
 @Component({
   selector: 'app-itemadd',
@@ -10,7 +11,9 @@ export class ItemaddComponent implements OnInit {
   submitted = false;
   itemForm : FormGroup;
 
-  constructor(   private formBuilder: FormBuilder,) { }
+  constructor(   private formBuilder: FormBuilder,
+    private itemaddService: ItemaddService,
+    ) { }
   get formControl() { return this.itemForm.controls; }
 
   ngOnInit() {
@@ -21,6 +24,7 @@ export class ItemaddComponent implements OnInit {
       price: ['', Validators.required],
       stock: ['', Validators.required],
       des: ['', Validators.required],
+      gstin: ['', Validators.required],
   });
   }
 
@@ -31,6 +35,25 @@ export class ItemaddComponent implements OnInit {
     if (this.itemForm.invalid) {
       return;
   }
-  alert("SUCCESS");
+
+  {
+    this.itemaddService.postSign(this.itemForm).subscribe(
+      data => {
+        debugger
+        console.log(JSON.stringify(data));
+        const info: any = data;
+        if (200 == info) {
+            console.log('登录成功，调转详情页');
+            // sessionStorage.setItem('token', info.result.token)
+        } else {
+          console.log('登录失败，弹出MSG');
+          // this.alerts.push({type : 'danger', message: 'username or password error!'});
+  
+        }
+      }
+      // onmessage(this:window,any);
+    );
+  }
+
 }
 }

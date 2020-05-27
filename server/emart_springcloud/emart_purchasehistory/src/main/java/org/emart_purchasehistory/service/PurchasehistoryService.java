@@ -18,11 +18,12 @@ public class PurchasehistoryService {
 	
     public List<PurchasehistoryEntity> getPurchasehistory() {
     	return (List<PurchasehistoryEntity>) purchasehistoryRepository.findAll();
+    	//return (List<PurchasehistoryEntity>) purchasehistoryRepository.getHistory();
     }
 	
     public void insertPurchasehistory(PurchasehistoryModel purchasehistoryModel) {
     	PurchasehistoryEntity purchasehistoryEntity = new PurchasehistoryEntity();
     	BeanUtils.copyProperties(purchasehistoryModel, purchasehistoryEntity);	
-    	purchasehistoryRepository.save(purchasehistoryEntity);
+    //	purchasehistoryRepository.save(purchasehistoryEntity);
     }
 }

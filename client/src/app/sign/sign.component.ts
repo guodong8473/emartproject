@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {SignService} from './sign.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-sign',
@@ -15,6 +18,8 @@ export class SignComponent implements OnInit {
   error = '';
   constructor(
     private formBuilder: FormBuilder,
+    private signService: SignService,
+    private router: Router,
   ) { }
 
   get formControl() { return this.signForm.controls; }
@@ -49,25 +54,24 @@ onSubmit() {
   if (this.signForm.invalid) {
     return;
 }
-// {
-//   this.userService.postSignIn(value).subscribe(
-//     data => {
-//       console.log(JSON.stringify(data));
-//       const info: any = data;
-//       if (200 === info.code) {
-//           console.log('登录成功，调转详情页');
-//           sessionStorage.setItem('token', info.result.token)
-//           this.router.navigate(['/products']);
-//       } else {
-//         console.log('登录失败，弹出MSG');
-//         this.alerts.push({type : 'danger', message: 'username or password error!'});
+{
+  this.signService.postSign(this.signForm).subscribe(
+    data => {
+      debugger
+      console.log(JSON.stringify(data));
+      const info: any = data;
+      if (200 === info) {
+          console.log('登录成功，调转详情页');
+          // sessionStorage.setItem('token', info.result.token)
+          this.router.navigate(['/login']);
+      } else {
+        console.log('登录失败，弹出MSG');
+        // this.alerts.push({type : 'danger', message: 'username or password error!'});
 
-//       }
-//     }
-//   );
-// }
-
-
+      }
+    }
+  );
+}
 
 }
 
@@ -79,23 +83,24 @@ onsellerSubmit() {
   if (this.sellerForm.invalid) {
     return;
 }
-// {
-//   this.userService.postSignIn(value).subscribe(
-//     data => {
-//       console.log(JSON.stringify(data));
-//       const info: any = data;
-//       if (200 === info.code) {
-//           console.log('登录成功，调转详情页');
-//           sessionStorage.setItem('token', info.result.token)
-//           this.router.navigate(['/products']);
-//       } else {
-//         console.log('登录失败，弹出MSG');
-//         this.alerts.push({type : 'danger', message: 'username or password error!'});
+{
+  this.signService.postSellerSign(this.sellerForm).subscribe(
+    data => {
+      debugger
+      console.log(JSON.stringify(data));
+      const info: any = data;
+      if (200 == info) {
+          console.log('登录成功，调转详情页');
+          // sessionStorage.setItem('token', info.result.token)
+          this.router.navigate(['/login']);
+      } else {
+        console.log('登录失败，弹出MSG');
+        // this.alerts.push({type : 'danger', message: 'username or password error!'});
 
-//       }
-//     }
-//   );
-// }
+      }
+    }
+  );
+}
 
 
 

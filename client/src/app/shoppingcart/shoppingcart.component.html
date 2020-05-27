@@ -6,19 +6,19 @@
     <div  class="list-group-item " >
     <ul class="list-unstyled">   
       <li class="media">
-        <img src="{{product.pic}}" class="mr-3" style="height: 150px; display: block;"  alt="...">
+        <img src="{{product.item.url}}" class="mr-3" style="height: 150px; display: block;"  alt="...">
         <div class="media-body row">
           <div class="col-md-3 align-middle">
-            <label>{{product.title}}</label>
+            <label>{{product.item.item_name}}</label>
           </div>
           <div class="col-md-2 align-middle">
-            <label >{{product.price}}元</label>
+            <label >{{product.item.price}}元</label>
           </div>
           <div class="col-md-3 align-middle">
-          <input type="text" class="form-control" name="product.buycount" value="{{product.buycount}}">
+          <input type="text" class="form-control" name="product.buycount" value="{{product.number_of_items}}">
           </div>
           <div class="col-md-4 align-middle">
-            <button (click)="ondelete()" type="submit" class="btn btn-primary mr-4">Delete</button>
+            <button (click)="ondelete(product.id)" type="submit" class="btn btn-primary mr-4">Delete</button>
           </div>
          </div>
       </li>

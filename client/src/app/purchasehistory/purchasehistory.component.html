@@ -11,16 +11,16 @@
       <div  class="list-group-item " >
       <ul class="list-unstyled">   
         <li class="media">
-          <img src="{{product.pic}}" class="mr-3" style="height: 150px; display: block;"  alt="...">
+          <img src="{{product.item.url}}" class="mr-3" style="height: 150px; display: block;"  alt="...">
           <div class="media-body row">
             <div class="col-md-3 align-middle">
-              <label>{{product.title}}</label>
+              <label>{{product.item.item_name}}</label>
             </div>
             <div class="col-md-2 align-middle">
-              <label >{{product.price}}元</label>
+              <label >{{product.item.price}}元</label>
             </div>
             <div class="col-md-3 align-middle">
-            <label  name="product.buycount" >{{product.buycount}}</label>
+            <label  name="product.buycount" >{{product.item.number_of_items}}</label>
             </div>
             <div class="col-md-4 align-middle">
               <button type="button" class="btn btn-primary mr-4" (click)="onview(i)" data-toggle="modal" data-target="#item_spec">View</button>
@@ -44,18 +44,18 @@
             </div>
             <div class="form-row">
               <div class="media">
-                <img src="{{products[current].pic}}" class="mr-3 img-thumbnail" style="height: 150px;  display: block;" alt="...">
+                <img src="{{products[current].item.url}}" class="mr-3 img-thumbnail" style="height: 150px;  display: block;" alt="...">
                 <div class="media-body">
   
                   <div class="col-md-12">
-                    <label > {{products[current].title}} </label>
+                    <label > {{products[current].item.item_name}} </label>
   
                   </div>
                   <div class="col-md-12">
-                    <label >{{ products[current].price }}</label>                      
+                    <label >{{ products[current].item.price }}</label>                      
                   </div>
                   <div class="col-md-12">
-                    <label >{{ products[current].desc }}</label>
+                    <label >{{ products[current].item.description }}</label>
   
                   </div>
                   <div class="col-md-12">

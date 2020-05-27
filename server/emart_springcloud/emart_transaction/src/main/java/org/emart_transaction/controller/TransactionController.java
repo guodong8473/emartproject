@@ -23,10 +23,19 @@ public class TransactionController {
 	private TransactionService transactionService;
 	
 	@RequestMapping(value="/trans",method=RequestMethod.GET)
-	public List<TransactionEntity> getPurchasehistoryInfo(){
+	public List<TransactionEntity> getTransactionInfo(){
 		System.out.println("transaction");
 		return transactionService.getTransaction();
 //		return ResponseEntity.ok(buyerService.getBuyer());
+	}
+
+    @RequestMapping(value = "/deltrans", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	//@PostMapping(value="/register")
+	public ResponseEntity<Integer> deltrans(@RequestBody String id){
+		System.out.println("register");
+		transactionService.delTransaction(id);
+		return ResponseEntity.ok(1);
+//		return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

@@ -10,24 +10,25 @@ import { IteamsearchService } from './itemsearch.service';
 interface ProductItem {
   id: string;
   price: number
-  title: string;
-  desc: string;
-  pic: string;
+  item_name: string;
+  description: string;
+  url: string;
 }
 
-const PRODUCTS: ProductItem[] = [{
-  id: '1',
-  price: 3299,
-  title: 'iphone se',
-  desc: 'iPhone SE packs A13 Bionic, Portrait mode, 4K video, Touch ID, a Retina HD display, and great battery life into a 4.7” design',
-  pic: './assets/iphonese.jpg'
-}, {
-  id: '2',
-  price: 4999,
-  title: 'xiaomi 10',
-  desc: 'new xiaomi phone',
-  pic: './assets/xiaomi.jpg'
-}
+const PRODUCTS: ProductItem[] = [
+//   {
+//   id: '1',
+//   price: 3299,
+//   item_name: 'iphone se',
+//   description: 'iPhone SE packs A13 Bionic, Portrait mode, 4K video, Touch ID, a Retina HD display, and great battery life into a 4.7” design',
+//   url: './assets/iphonese.jpg'
+// }, {
+//   id: '2',
+//   price: 4999,
+//   item_name: 'xiaomi 10',
+//   description: 'new xiaomi phone',
+//   url: './assets/xiaomi.jpg'
+// }
 ];
 @Component({
   selector: 'app-itemsearch',
@@ -81,17 +82,24 @@ export class ItemsearchComponent implements OnInit {
 
   searchitem() {
     // this.loaded = false;
-
-    if (this.products.length == 0) {
-      this.itemsService.getItems()
+    debugger
+    let itemSearchModel = {
+      start_price : this.start_price.value,
+      end_price : this.end_price.value,
+      manufactory : this.manufactory.value,
+      name : this.name.value,   
+    };
+    //if (this.products.length == 0) {
+      this.itemsService.getItems(itemSearchModel)
         .subscribe(
           items => {
             debugger
             this.products = items;
             console.log(items)
+            debugger
           });
     
-    }
+    //}
   }
 
 }

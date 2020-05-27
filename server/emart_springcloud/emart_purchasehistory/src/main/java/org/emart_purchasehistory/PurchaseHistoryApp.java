@@ -1,4 +1,4 @@
-package org.emart_item;
+package org.emart_purchasehistory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class App 
+public class PurchaseHistoryApp 
 {
 	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
+		SpringApplication.run(PurchaseHistoryApp.class, args);
 		
 	}
 }

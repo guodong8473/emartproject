@@ -11,8 +11,8 @@
                     <label class="col-md-3 ">Categary</label>
 
                     <select class="form-control col-md-4" formControlName="categary" required>
-                      <option value="samsung">PHONE</option>
-                      <option value="apple">COMPUTER</option>
+                      <option value="1">PHONE</option>
+                      <option value="2">COMPUTER</option>
                     </select>
                     <div *ngIf="submitted  && formControl.categary.errors" class="col-md-5 ">
                         <div *ngIf="formControl.categary.errors.required" style="color: red;">categary is required</div>
@@ -22,8 +22,8 @@
                 <label class="col-md-3 ">Sub Categary</label>
 
                 <select class="form-control col-md-4" formControlName="sub_categary" required>
-                  <option value="samsung">APPLE</option>
-                  <option value="apple">OPPO</option>
+                  <option value="1">APPLE</option>
+                  <option value="2">OPPO</option>
                 </select>
                 <div *ngIf="submitted  && formControl.sub_categary.errors" class="col-md-5 ">
                     <div *ngIf="formControl.sub_categary.errors.required" style="color: red;">sub_categary is required</div>
@@ -34,6 +34,13 @@
                 <input type="password" formControlName="item_name" class="form-control col-md-4"/>
                 <div *ngIf="submitted && formControl.item_name.errors" class="col-md-5 ">
                     <div *ngIf="formControl.item_name.errors.required" style="color: red;">Item Name is required</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 right">Manufactory</label>
+                <input type="password" formControlName="gstin" class="form-control col-md-4"/>
+                <div *ngIf="submitted && formControl.gstin.errors" class="col-md-5 ">
+                    <div *ngIf="formControl.gstin.errors.required" style="color: red;">Manufactory is required</div>
                 </div>
               </div>
               <div class="form-group row">
