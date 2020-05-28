@@ -7,6 +7,12 @@
     </a>
      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+          <a *ngIf="isSignin" class="nav-link" routerLink="/shoppingcart">
+            <i class="fas fa-home mr-1"></i>ShoppingCart
+          </a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" routerLink="/home">
             <i class="fas fa-home mr-1"></i>Home

@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShoppingcartService {
 
+
   url = 'http://localhost:4200/api';
 
 constructor(private http: HttpClient) { }
@@ -32,7 +33,15 @@ getDiscount(code) {
   //JSON.stringify(buyerModel)
     );
 
+    
 }
+
+addToCart(itemModel: any) {
+  debugger
+  return this.http.post(`${this.url}/cloud-emart-trans/register`,itemModel
+  
+  //JSON.stringify(buyerModel)
+    );}
 
 
 }

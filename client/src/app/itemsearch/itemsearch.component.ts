@@ -5,6 +5,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 // import { DialogComponent, DialogService } from 'ngx-bootstrap-modal';
 
 import { IteamsearchService } from './itemsearch.service';
+import { PurchasehistoryService } from '../purchasehistory/purchasehistory.service';
+import { ShoppingcartService } from '../shoppingcart/shoppingcart.service';
 
 
 interface ProductItem {
@@ -49,6 +51,8 @@ export class ItemsearchComponent implements OnInit {
   current = 0;
   constructor(
     private itemsService: IteamsearchService,
+    private purchasehistoryService: PurchasehistoryService,
+    private shoppingcartService : ShoppingcartService,
 
   ) { 
         this.onSetValueForm();
@@ -93,13 +97,67 @@ export class ItemsearchComponent implements OnInit {
       this.itemsService.getItems(itemSearchModel)
         .subscribe(
           items => {
-            debugger
+            
             this.products = items;
             console.log(items)
-            debugger
+            
           });
     
     //}
   }
+
+  checkOut(cur) {
+
+      let itemModel = {
+
+        number_of_items : 1,
+        remarks : this.products[cur].item_name,
+        item : {
+          id : this.products[cur].id,
+        }
+      };
+      this.purchasehistoryService.addPurchase(itemModel)
+        .subscribe(
+          items => {
+            
+            // this.products = items;
+            console.log(items)
+          });
+          alert("Check Out Success!!");
+          
+      
+   }
+
+   addCart(cur) {
+
+    let itemModel = {
+      transaction_type : 'BUYING',
+      number_of_items : 1,
+      remarks : this.products[cur].item_name,
+      item : {
+        id : this.products[cur].id,
+      },
+      
+      seller : {
+         id : 1,
+       },
+      
+       buyer : {
+         id : 1,
+       },
+
+    };
+    this.shoppingcartService.addToCart(itemModel)
+      .subscribe(
+        items => {
+          debugger
+          // this.products = items;
+          console.log(items)
+        });
+        alert("Add To Cart Success!!");
+        
+    
+ }
+
 
 }

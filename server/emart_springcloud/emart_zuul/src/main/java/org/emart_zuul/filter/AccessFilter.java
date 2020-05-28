@@ -77,7 +77,8 @@ public class AccessFilter extends ZuulFilter{
 		// 如果是登录链接，则发起请求
 		// URL: http://localhost:8901/auth/oauth/token?grant_type=password&scope=webclient&username=admin&password=admin
 		String auUrl = "http://localhost:8090/oauth/token?grant_type=password&client_id=springcloud&client_secret=mysecret&username=kim&password=pass";
-		if("http://localhost:4200/api/cloud-emart-auth/oauth/token".equals(url)){
+//		if("http://localhost:4200/api/cloud-emart-auth/oauth/token".equals(url)){
+			if(url.indexOf("api/cloud-emart-auth/oauth/token") > 0){
 			
 //			Map<String, Object> rToken = restTempate.getForObject(auUrl, Map.class);
 			return null;

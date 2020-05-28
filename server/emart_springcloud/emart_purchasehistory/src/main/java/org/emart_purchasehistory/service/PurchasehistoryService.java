@@ -24,6 +24,6 @@ public class PurchasehistoryService {
     public void insertPurchasehistory(PurchasehistoryModel purchasehistoryModel) {
     	PurchasehistoryEntity purchasehistoryEntity = new PurchasehistoryEntity();
     	BeanUtils.copyProperties(purchasehistoryModel, purchasehistoryEntity);	
-    //	purchasehistoryRepository.save(purchasehistoryEntity);
+    	purchasehistoryRepository.save(purchasehistoryEntity);
     }
 }

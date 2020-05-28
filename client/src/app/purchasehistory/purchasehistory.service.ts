@@ -10,6 +10,7 @@ const httpOptions = {
 })
 export class PurchasehistoryService {
 
+
   url = 'http://localhost:4200/api';
 
 constructor(private http: HttpClient) { }
@@ -22,4 +23,12 @@ getHistory() {
   //JSON.stringify(buyerModel)
     );
 }
+
+addPurchase(itemModel: any) {
+  debugger
+  return this.http.post(`${this.url}/cloud-emart-history/register`,itemModel
+  
+  //JSON.stringify(buyerModel)
+    );}
+
 }

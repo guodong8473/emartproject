@@ -53,11 +53,11 @@ public void setItem(ItemEntity item) {
   @Column(name = "remarks")
   private String remarks;
 
-  @Column(name = "create_time")
-  private Timestamp create_time;
-
-  @Column(name = "updateTime")
-  private Timestamp updateTime;
+//  @Column(name = "create_time")
+//  private Timestamp create_time;
+//
+//  @Column(name = "updateTime")
+//  private Timestamp updateTime;
 
 public int getId() {
 	return id;
@@ -123,21 +123,6 @@ public void setRemarks(String remarks) {
 	this.remarks = remarks;
 }
 
-public Timestamp getCreate_time() {
-	return create_time;
-}
-
-public void setCreate_time(Timestamp create_time) {
-	this.create_time = create_time;
-}
-
-public Timestamp getUpdateTime() {
-	return updateTime;
-}
-
-public void setUpdateTime(Timestamp updateTime) {
-	this.updateTime = updateTime;
-}
 
 
 }

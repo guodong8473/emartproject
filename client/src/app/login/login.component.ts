@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
 
         console.log('登录成功，调转详情页');
         sessionStorage.setItem('token', info.access_token)
+        sessionStorage.setItem('user_role', this.loginForm.controls.login_role.value);
         this.router.navigate(['/home']);
 
         debugger
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   // sessionStorage.setItem('token', 'test');
-  // sessionStorage.setItem('user_role', this.loginForm.controls.login_role.value);
+  // 
 
   }
 }

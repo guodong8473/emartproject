@@ -34,11 +34,11 @@ public class TransactionService {
     	BeanUtils.copyProperties(transactionModel, transactionEntity);
     	
     	BuyerEntity buyer = new BuyerEntity();
-    	buyer.setId(transactionModel.getBuyer_id());
+    	buyer.setId(transactionModel.getBuyer().getId());
     	transactionEntity.setBuyer(buyer);
     	
     	SellerEntity seller = new SellerEntity();
-    	seller.setId(transactionModel.getSeller_id());
+    	seller.setId(transactionModel.getSeller().getId());
     	transactionEntity.setSeller(seller);	
     	
     	

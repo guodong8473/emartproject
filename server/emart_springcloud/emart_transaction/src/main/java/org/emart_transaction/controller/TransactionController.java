@@ -34,7 +34,7 @@ public class TransactionController {
 	public ResponseEntity<Integer> deltrans(@RequestBody String id){
 		System.out.println("register");
 		transactionService.delTransaction(id);
-		return ResponseEntity.ok(1);
+		return ResponseEntity.ok(200);
 //		return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
@@ -43,7 +43,7 @@ public class TransactionController {
 	public ResponseEntity<Integer> register(@RequestBody TransactionModel transactionModel){
 		System.out.println("register");
 		transactionService.insertTransaction(transactionModel);
-		return ResponseEntity.ok(1);
+		return ResponseEntity.ok(200);
 //		return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
