@@ -89,4 +89,13 @@
 		<module>emart_discount</module>
 		<module>emart_authentication</module>
 	</modules>
+	  	<build>
+		<plugins>
+			<!-- Maven SpringBoot plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

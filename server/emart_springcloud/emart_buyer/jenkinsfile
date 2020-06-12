@@ -1,0 +1,43 @@
+node {
+    stage('git clone') { // for display purposes
+     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:guodong8473/emartproject.git']]])
+   }
+     
+    stage('Build') {
+           //env.JAVA_HOME="${tool 'jdk1.8.0_231'}"
+           withMaven(
+            maven: 'my_maven',
+            mavenLocalRepo: '.repository') {
+                //  dir 'server/emart_springcloud/emart_user'
+                dir('server/emart_springcloud/emart_buyer'){
+                echo 'start'
+                // bat (/mvn clean package -Dmaven.test.skip=true/)
+                bat label: 'start', script: 'mvn clean package -Dmaven.test.skip=true'
+                echo 'end'
+                }
+                
+                dir('server/emart_springcloud/emart_item'){
+                // echo 'start'
+                // bat (/mvn clean package -Dmaven.test.skip=true/)
+                bat label: 'start', script: 'mvn clean package -Dmaven.test.skip=true'
+                // echo 'end'
+                }
+
+        }
+   }
+   
+   
+   
+   stage('deploy') {
+                dir('server/emart_springcloud/emart_buyer'){
+
+                // bat (/mvn clean package -Dmaven.test.skip=true/)
+                bat 'docker build -t springcloud/buyer:v1 .'
+                bat 'docker run -d -p 8088:8088  springcloud/buyer:v1'
+
+                }
+    //     sh 'docker run -d -p 8080:8080 -v /home/data:/webapps --name search tomcat:9.0'
+   
+
+   }
+}
